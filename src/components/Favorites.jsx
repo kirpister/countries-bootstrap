@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initializeCountries } from '../features/countriesSlice';
 import { LinkContainer } from 'react-router-bootstrap';
-import { addFavorite } from '../features/favoritesSlice';
+
 
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -10,25 +10,33 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 import Spinner from "react-bootstrap/Spinner";
+import { clearFavorites } from '../features/favoritesSlice';
 
-const Countries = () => {
+const Favorites = () => {
 
   const dispatch = useDispatch();
-  const countriesList = useSelector((state) => state.countries.countries);
+  let countriesList = useSelector((state) => state.countries.countries);
   const loading = useSelector((state) => state.countries.isLoading);
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
+  const [favoritesList, setFavoritesList] = useState([]);
+
+  if (favoritesList !== null) {
+    countriesList = countriesList.filter(c => favoritesList.includes(c.name.common))
+  }
+  else {
+    countriesList = [];
+  }
 
 
   useEffect(() => {
     dispatch(initializeCountries())
+    setFavoritesList(localStorage.getItem('Favorites')) // takes only the items in local storage and only shows those
   },[dispatch]);
 
-  const toTopHandler = () => {
-    window.scrollTo(0, 0);
-}
+  if (loading)
 
-  
   return (
     <Container fluid>
       <Row>
@@ -46,6 +54,11 @@ const Countries = () => {
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
+        <Button onClick={() => {
+            dispatch(clearFavorites())
+        }}>Clear Favorites</Button>
+      </Row>
+      <Row xs={2} md={3} lg={4} className=" g-3">
       {/* {loading ? <Spinner animation="border" /> : ""} */}
         {countriesList.map((country) => (
            <Col className="mt-5">
@@ -54,9 +67,6 @@ const Countries = () => {
              state={{ country: country }}
            >
              <Card className="h-100">
-
-              <i class='bi bi-heart text-danger m-1 p-1' onClick={() => dispatch(addFavorite(country.name.common))}></i>
-
                <Card.Body className="d-flex flex-column">
                  <Card.Title>{country.name.common}</Card.Title>
                  <Card.Subtitle className="mb-5 text-muted">
@@ -102,12 +112,8 @@ const Countries = () => {
          </Col>
         ))}
       </Row>
-      <div className='top-btn'>
-      <i class="bi bi-arrow-up-circle" onClick={toTopHandler}></i>
-      </div>
     </Container>
-    
   );
 };
 
-export default Countries;
+export default Favorites;

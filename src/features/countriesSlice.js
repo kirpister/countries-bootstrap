@@ -11,9 +11,11 @@ export const countriesSlice = createSlice({
     reducers: {
         getCountries(state, action) {
             state.countries = action.payload
-        }
-    },
-})
+        },
+        isLoading(state, action){
+            state.isLoading = action.payload;
+    }
+}})
 
 export const initializeCountries = () => {
     return async (dispatch) => {
@@ -23,5 +25,5 @@ export const initializeCountries = () => {
     }
 } 
 
-export const { getCountries }  =  countriesSlice.actions; 
+export const { getCountries, isLoading }  =  countriesSlice.actions; 
 export default countriesSlice.reducer;
