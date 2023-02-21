@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
+/* HOME */
+
+.wrapper {
+  background-image: url(./assets/plane.jpg), linear-gradient(180deg, rgba(1, 27, 227, 0.86) 0%, rgba(255,230,100,0.8) 100%);;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: calc(100vh - 120px); 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-top: 1px solid rgb(0, 0, 0);
+  filter: drop-shadow(1px 2px 6px rgb(22, 22, 22));
+  background: linear-gradient(to right, #0d1f60, #1f3099, #110f4f);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+footer span {
+  font-size: .8rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+footer a {
+  text-decoration: none;
+  color:rgb(152, 179, 255);
+  cursor: pointer;
+}
+
+/* REGISTER  */
+
+.register-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 1rem;
+}
+
+.register-box input, button {
+  width: 200px;
+  margin: 1rem;
+}
+
+.no-account {
+  margin: 1rem;
+}
+
+/* NAVIGATION */
+
+nav {
+  /* background-image: linear-gradient(to left, #f57d15, #fba85f, #0156b6);  */
+  background: linear-gradient(to right, #0d1f60, #1f3099, #110f4f);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  filter: drop-shadow(1px 2px 6px rgb(22, 22, 22));
+  height: 80px;
+}
+
+nav button {
+  width: fit-content;
+}
+
+.nav-link {
   color: white;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-left: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-link:hover {
+  color: rgb(152, 179, 255);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.active {
+  color: rgb(152, 179, 255) !important;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+  filter: invert(1) drop-shadow(1px 2px 3px rgb(0, 0, 0));
+  margin-left: -2rem;
+}
+
+.logout-btn {
+  position: absolute;
+  top: .2rem;
+  right: .5rem;
+  background-color: transparent;
+}
+
+/* CARDS */
+
+.card,
+.card-body {
+  border-radius: .7rem;
+}
+
+.card-body {
+  background-color: rgba(255, 255, 255, 0.509);
+}
+
+.card-img {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
 }

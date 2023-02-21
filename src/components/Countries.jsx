@@ -10,14 +10,15 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
-import Spinner from "react-bootstrap/Spinner";
+import { Spinner } from "react-bootstrap";
 
 const Countries = () => {
 
   const dispatch = useDispatch();
   const countriesList = useSelector((state) => state.countries.countries);
+  const faveList = useSelector((state) => state.favorites.favorites);
   const loading = useSelector((state) => state.countries.isLoading);
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
 
 
   useEffect(() => {
@@ -26,8 +27,22 @@ const Countries = () => {
 
   const toTopHandler = () => {
     window.scrollTo(0, 0);
-}
+  }
 
+  if (loading) {
+    return (
+    <Col className="text-center m-5">
+        <Spinner
+          animation="border"
+          role="status"
+          className="center"
+          variant="info"
+        >
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </Col>
+    );
+  }
   
   return (
     <Container fluid>
@@ -46,17 +61,25 @@ const Countries = () => {
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
-      {/* {loading ? <Spinner animation="border" /> : ""} */}
-        {countriesList.map((country) => (
-           <Col className="mt-5">
+        {countriesList.filter((c) => {
+          return c.name.official
+          .toLowerCase()
+          .includes(search.toLowerCase());
+          }).map((country) => (<Col className="mt-5" key={country.name.common}> 
+           
            <LinkContainer
              to={`/countries/${country.name.common}`}
              state={{ country: country }}
            >
              <Card className="h-100">
 
-              <i class='bi bi-heart text-danger m-1 p-1' onClick={() => dispatch(addFavorite(country.name.common))}></i>
+              
+              {faveList.includes(country.name.common) ? (<i className='bi bi-heart-fill text-danger m-1 p-1' ></i>
 
+              ) : (
+
+              <i className="bi bi-heart text-danger m-1 p-1" onClick={() => dispatch(addFavorite(country.name.common))}></i>)}
+          
                <Card.Body className="d-flex flex-column">
                  <Card.Title>{country.name.common}</Card.Title>
                  <Card.Subtitle className="mb-5 text-muted">
@@ -103,7 +126,7 @@ const Countries = () => {
         ))}
       </Row>
       <div className='top-btn'>
-      <i class="bi bi-arrow-up-circle" onClick={toTopHandler}></i>
+      <i className="bi bi-arrow-up-circle" onClick={toTopHandler}></i>
       </div>
     </Container>
     

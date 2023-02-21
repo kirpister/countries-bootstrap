@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Map from './Map';
 
 import { Container, Row, Col, Image, Button, Spinner } from 'react-bootstrap';
 
@@ -14,6 +15,7 @@ const CountriesSingle = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
 
     axios.get(
@@ -25,8 +27,10 @@ const CountriesSingle = () => {
       setWeather(res.data)
       setLoading(false)
     })
+    console.log(country.capital)
 
   }, [country.capital]);
+
 
 // _________________
 
@@ -74,6 +78,7 @@ const CountriesSingle = () => {
         )}
         </Col>
       </Row>
+      {/* <Map /> */}
       <Row>
         <Col>
         <Button className='c-single-btn' variant="light" onClick={() => navigate('/countries')}>Go Back</Button>

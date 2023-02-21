@@ -2,16 +2,13 @@
 
 body {
   font-family: 'Rubik', sans-serif;
-  background-color: #252525;
-  color: rgb(183, 183, 183);
+  /* background-color: #252525; */
+  background: linear-gradient(to right, #0d1f60, #1f3099, #110f4f);
+  color: rgb(135, 231, 255);
 }
 
 h2 {
   letter-spacing: 2px;
-}
-
-.card-body {
-  background-color: rgb(255, 255, 255);
 }
 
 .top-btn i {
@@ -28,12 +25,16 @@ h2 {
   justify-content: left;
   align-items: center; */
   border: 1px solid white;
-  background-color: rgb(32, 32, 32);
+  background-color: rgba(255, 255, 255, 0.134);
   border-radius: 1rem;
   padding: 1rem;
   margin-top: 3rem;
   width: 30vw;
   height: 25vh;
+}
+
+.weather-box img {
+  filter: drop-shadow(1px 1px 5px #121212);
 }
 
 .c-single-btn {

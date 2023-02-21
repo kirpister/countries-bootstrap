@@ -12,12 +12,13 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Spinner from "react-bootstrap/Spinner";
-import { clearFavorites } from '../features/favoritesSlice';
+import { addFavorite, clearFavorites } from '../features/favoritesSlice';
 
 const Favorites = () => {
 
   const dispatch = useDispatch();
   let countriesList = useSelector((state) => state.countries.countries);
+  let faveList = useSelector((state) => state.favorites.favorites);
   const loading = useSelector((state) => state.countries.isLoading);
   const [search, setSearch] = useState('');
   const [favoritesList, setFavoritesList] = useState([]);
@@ -35,7 +36,20 @@ const Favorites = () => {
     setFavoritesList(localStorage.getItem('Favorites')) // takes only the items in local storage and only shows those
   },[dispatch]);
 
-  if (loading)
+  if (loading) {
+    return (
+        <Col className="text-center m-5">
+            <Spinner
+              animation="border"
+              role="status"
+              className="center"
+              variant="info"
+            >
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </Col>
+        );
+  }
 
   return (
     <Container fluid>
@@ -59,7 +73,7 @@ const Favorites = () => {
         }}>Clear Favorites</Button>
       </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
-      {/* {loading ? <Spinner animation="border" /> : ""} */}
+   
         {countriesList.map((country) => (
            <Col className="mt-5">
            <LinkContainer
@@ -67,6 +81,13 @@ const Favorites = () => {
              state={{ country: country }}
            >
              <Card className="h-100">
+
+             {faveList.includes(country.name.common) ? (<i className='bi bi-heart-fill text-danger m-1 p-1'></i>
+              
+              ) : (
+
+              <i className="bi bi-heart text-danger m-1 p-1" onClick={() => dispatch(addFavorite(country.name.common))}></i>)}
+
                <Card.Body className="d-flex flex-column">
                  <Card.Title>{country.name.common}</Card.Title>
                  <Card.Subtitle className="mb-5 text-muted">
