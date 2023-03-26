@@ -1,5 +1,7 @@
 ## Countries App with Redux &#127758;
 
+[Go to live page](https://countries-app-kirpister.vercel.app/)
+
 Aim of this project was to get comfortable with state management using React Redux. We also have a look at authentication with Firebase.
 We get the data used in the project from [Rest Countries API](https://restcountries.com/) and [OpenWeather API](https://openweathermap.org/). 
 
