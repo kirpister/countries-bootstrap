@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initializeCountries } from '../features/countriesSlice';
 import { LinkContainer } from 'react-router-bootstrap';
-import { addFavorite } from '../features/favoritesSlice';
+import { addFavorite, removeFavorite } from '../features/favoritesSlice';
 
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -47,6 +47,7 @@ const Countries = () => {
   return (
     <Container fluid>
       <Row>
+        <h2 className='countries-h2'>Countries</h2>
         <Col className="mt-5 d-flex justify-content-center">
           <Form>
             <Form.Control
@@ -72,15 +73,18 @@ const Countries = () => {
              state={{ country: country }}
            >
              <Card className="h-100">
-
               
-              {faveList.includes(country.name.common) ? (<i className='bi bi-heart-fill text-danger m-1 p-1' ></i>
+               <Card.Body className="d-flex flex-column">
+               {faveList.includes(country.name.common) ? (
+              <i className='bi bi-heart-fill text-danger m-1 p-1' onClick={() => dispatch(removeFavorite(country.name.common))} >
+              </i>
 
               ) : (
 
-              <i className="bi bi-heart text-danger m-1 p-1" onClick={() => dispatch(addFavorite(country.name.common))}></i>)}
+              <i className="bi bi-heart text-danger m-1 p-1" 
+              onClick={() => dispatch(addFavorite(country.name.common))}>
+              </i>)}
           
-               <Card.Body className="d-flex flex-column">
                  <Card.Title>{country.name.common}</Card.Title>
                  <Card.Subtitle className="mb-5 text-muted">
                    {country.name.official}

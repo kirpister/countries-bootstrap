@@ -20,11 +20,12 @@ const Register = () => {
     useEffect( () => {
         if(loading) return;
         if(user) navigate('/countries');
-    },[user, loading]);
+    },[user, loading, navigate]);
 
     return (
 
         <div className='register-box'>
+            <h3>Create an account</h3>
             <input type='text'
             value={name}
             onChange={(e) => setName(e.target.value) }
@@ -44,7 +45,7 @@ const Register = () => {
             /> 
 
             <Button onClick={register}>Register</Button>
-            <div className='no-account'>
+            <div className='account'>
             <p>Already have an account?</p>
             <Link to='/login'>Login</Link>
             </div>

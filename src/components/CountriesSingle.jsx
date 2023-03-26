@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Map from './Map';
 
 import { Container, Row, Col, Image, Button, Spinner } from 'react-bootstrap';
+
 
 const CountriesSingle = () => {
 
@@ -27,14 +27,11 @@ const CountriesSingle = () => {
       setWeather(res.data)
       setLoading(false)
     })
-    console.log(country.capital)
-
+  
   }, [country.capital]);
 
 
 // _________________
-
-  const borderCountries = country.borders;
 
 
   if (loading) {
@@ -62,12 +59,12 @@ const CountriesSingle = () => {
         </Col>
         <Col className='country-info'>
         <h2 className='display-4'>{country.name.common}</h2>
-        <h3>{country.capital}</h3>
-        <p>{country.region}</p><br />
-        <div className='border-countries'>
+        <h3>Capital: {country.capital}</h3>
+        <p>Region: {country.region}</p><br />
+        {/* <div className='border-countries'>
          <p>Bordering countries:</p>
        <small>{country.borders.join(', ')}</small>
-        </div>
+        </div> */}
         {!error && weather && (
           <div className='weather-box'>
             <p>
@@ -78,8 +75,18 @@ const CountriesSingle = () => {
         )}
         </Col>
       </Row>
-      {/* <Map /> */}
       <Row>
+        <div className='map-div'>
+      <iframe
+      title="Google Map"
+      width="91%"
+      height="350"
+      style={{ border: 0 }}
+      loading="lazy"
+      allowFullScreen
+      src={`https://www.google.com/maps/embed/v1/place?q=${country.capital}&zoom=12&key=${process.env.REACT_APP_API_KEY_GOOGLE}`}
+    />
+    </div>
         <Col>
         <Button className='c-single-btn' variant="light" onClick={() => navigate('/countries')}>Go Back</Button>
         </Col>

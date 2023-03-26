@@ -18,7 +18,7 @@ const Login = () => {
 
     return (
         <div className='register-box'>
-
+            <h3>Login</h3>
             <input type='text'
                 value={email}
                 onChange={(e) => setEmail(e.target.value) }

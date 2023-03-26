@@ -1,40 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Days+One&family=Rubik&display=swap');
+
 
 body {
   font-family: 'Rubik', sans-serif;
   /* background-color: #252525; */
-  background: linear-gradient(to right, #0d1f60, #1f3099, #110f4f);
+  /* background: linear-gradient(to right, #0d1f60, #1f3099, #110f4f); */
+  background-color: #1b1b1b;
   color: rgb(135, 231, 255);
 }
 
 h2 {
   letter-spacing: 2px;
+  margin-top: 1rem;
+  font-family: 'Days One', sans-serif;
 }
 
-.top-btn i {
+h1 {
+  font-family: 'Days One', sans-serif;
+  font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-top: 10%;
+  text-align: center;
+  background: linear-gradient(68.7deg, rgba(29, 173, 235, 0.6) 13.2%, rgba(137, 148, 250, 0.6) 29.8%, rgba(228, 98, 208, 0.6) 48.9%, rgba(255, 68, 127, 0.6) 68.2%, rgba(255, 94, 0, 0.6) 86.4%);
+  background-clip: text;
+  color: transparent;
+}
+
+.top-btn {
   position: fixed;
-  right: 2rem;
-  bottom: 2rem;
+  right: 1rem;
+  bottom: 3rem;
   font-size: 2rem;
   color: rgb(82, 82, 82);
 }
 
 .weather-box {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: center; */
-  border: 1px solid white;
-  background-color: rgba(255, 255, 255, 0.134);
+  border: 1px solid rgb(98, 242, 255); 
+  background-color: rgba(255, 255, 255, 0.787);
+  box-shadow:
+    inset 60px 0 120px rgba(132, 241, 255, 0.861),
+    inset -60px 0 120px rgba(0, 255, 255, 0.827); 
   border-radius: 1rem;
   padding: 1rem;
   margin-top: 3rem;
-  width: 30vw;
-  height: 25vh;
+  width: 22vw;
+  height: fit-content;
+  color: #333;
 }
 
 .weather-box img {
-  filter: drop-shadow(1px 1px 5px #121212);
+  filter: drop-shadow(1px 1px 5px #303030b0);
 }
 
 .c-single-btn {
@@ -42,9 +58,17 @@ h2 {
   background-color: transparent;
   color: white;
   padding: .5rem 1rem .5rem 1rem;
+  margin-top: 2rem;
 }
 
 .country-info {
   margin-left: 4rem;
   margin-top: -.6rem;
+}
+
+.bi {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+
 }

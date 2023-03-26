@@ -34,6 +34,8 @@ footer a {
 .register-box {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 1rem;
 }
 
@@ -42,18 +44,33 @@ footer a {
   margin: 1rem;
 }
 
+.register-box input {
+  border-radius: .3rem;
+  border: none;
+  padding: .3rem;
+  font-family: inherit;
+}
+
 .no-account {
-  margin: 1rem;
+  margin: .5rem;
+  margin-left: -2.5rem;
+}
+
+.account {
+  margin: .5rem;
+}
+
+.register-box h3 {
+  margin-top: 5rem;
 }
 
 /* NAVIGATION */
 
 nav {
-  /* background-image: linear-gradient(to left, #f57d15, #fba85f, #0156b6);  */
   background: linear-gradient(to right, #0d1f60, #1f3099, #110f4f);
   border-bottom: 1px solid rgb(0, 0, 0);
   filter: drop-shadow(1px 2px 6px rgb(22, 22, 22));
-  height: 80px;
+  height: 85px;
 }
 
 nav button {
@@ -62,25 +79,25 @@ nav button {
 
 .nav-link {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   letter-spacing: 2px;
-  margin-left: 2rem;
+  margin-right: 1.5rem;
 }
 
 .nav-link:hover {
-  color: rgb(152, 179, 255);
+  color: rgb(135, 231, 255);
 }
 
 
 .active {
-  color: rgb(152, 179, 255) !important;
+  color: rgb(135, 231, 255) !important;
 }
 
 .logo img {
   width: 50px;
   height: auto;
   filter: invert(1) drop-shadow(1px 2px 3px rgb(0, 0, 0));
-  margin-left: -2rem;
+  margin: 2rem;
 }
 
 .logout-btn {
@@ -88,6 +105,7 @@ nav button {
   top: .2rem;
   right: .5rem;
   background-color: transparent;
+  border: 1px solid white;
 }
 
 /* CARDS */
@@ -95,14 +113,55 @@ nav button {
 .card,
 .card-body {
   border-radius: .7rem;
+  border: none;
+  box-shadow: 2px 2px 8px rgba(51, 51, 51, 0.556);
+  color: #0335ec;;
 }
 
 .card-body {
-  background-color: rgba(255, 255, 255, 0.509);
+  /* background-color: rgba(101, 213, 254, 0.697); */
+  background-color: rgb(98, 231, 251);
+  border: none;
 }
 
 .card-img {
   width: 70%;
   margin: 0 auto;
   margin-bottom: 2rem;
+}
+
+
+
+/* COUNTRIES */
+
+.countries-h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 3rem;
+  letter-spacing: 3px;
+}
+
+.country-faves button {
+  width: 180px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+/* ABOUT */
+
+.info-cont {
+  width: 65vw;
+  margin: 0 auto;
+}
+
+.about-cont h2 {
+  text-align: center;
+  margin: 3rem;
+}
+
+.map-div {
+  display: flex;
+  justify-content: center;
+  
 }

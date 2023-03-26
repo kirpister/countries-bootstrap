@@ -30,6 +30,10 @@ const Favorites = () => {
     countriesList = [];
   }
 
+  const toTopHandler = () => {
+    window.scrollTo(0, 0);
+  }
+
 
   useEffect(() => {
     dispatch(initializeCountries())
@@ -52,8 +56,9 @@ const Favorites = () => {
   }
 
   return (
-    <Container fluid>
+    <Container fluid className='country-faves'>
       <Row>
+      <h2 className='countries-h2'>Favorite Countries</h2>
         <Col className="mt-5 d-flex justify-content-center">
           <Form>
             <Form.Control
@@ -133,6 +138,9 @@ const Favorites = () => {
          </Col>
         ))}
       </Row>
+      <div className='top-btn'>
+      <i className="bi bi-arrow-up-circle" onClick={toTopHandler}></i>
+      </div>
     </Container>
   );
 };
