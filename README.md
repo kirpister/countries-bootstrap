@@ -22,9 +22,11 @@ Password: tester
 - Firebase / Firestore
 - React Bootstrap
 
-### Peek at a country page
+### Peek at the app
 
-![Näyttökuva 2023-3-25 kello 12 50 02](https://user-images.githubusercontent.com/77112303/227773894-7382cf1b-4b1a-4957-b128-0a82caf3f66c.png)
+![countiresGH](https://github.com/kirpister/countries-bootstrap/assets/77112303/943aab08-10bc-4fff-9cdf-3687cbeeebc3)
+
+![countriesGH2](https://github.com/kirpister/countries-bootstrap/assets/77112303/fa96fdc6-4802-46bd-88c1-efeeee28903a)
 
 
 ### Acknowledgements
