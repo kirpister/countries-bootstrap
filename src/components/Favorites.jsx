@@ -73,7 +73,7 @@ const Favorites = () => {
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
-        <Button onClick={() => {
+        <Button className='clear-btn' onClick={() => {
             dispatch(clearFavorites())
         }}>Clear Favorites</Button>
       </Row>

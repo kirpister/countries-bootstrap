@@ -1,12 +1,18 @@
 /* HOME */
 
 .wrapper {
-  background-image: url(./assets/plane.jpg), linear-gradient(180deg, rgba(1, 27, 227, 0.86) 0%, rgba(255,230,100,0.8) 100%);;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
-  background-size: cover;
-  background-attachment: fixed;
-  min-height: calc(100vh - 120px); 
+ position: relative;
+}
+
+.wrapper h1 {
+  position: absolute;
+  top: -1rem;
+  left: 2rem;
+  /* top: 50%;
+  left: 40%;
+  transform: translate(-40%, 35%); */
+  z-index: 2;
+  line-height: 2;
 }
 
 footer {
@@ -16,11 +22,13 @@ footer {
   height: 40px;
   border-top: 1px solid rgb(0, 0, 0);
   filter: drop-shadow(1px 2px 6px rgb(22, 22, 22));
-  background: linear-gradient(to right, #0d1f60, #1f3099, #110f4f);
+  /* background: #141010;  */
+  background: transparent; 
 }
 
 footer span {
   font-size: .8rem;
+  color: #eaeaea; 
 }
 
 footer a {
@@ -67,10 +75,13 @@ footer a {
 /* NAVIGATION */
 
 nav {
-  background: linear-gradient(to right, #0d1f60, #1f3099, #110f4f);
+  /* background: linear-gradient(to right, #0d1f60, #1f3099, #110f4f); */
+  /* background: linear-gradient(109.6deg, rgb(122, 2, 54) 13.4%, rgb(43, 1, 91) 100.2%); */
+  background: transparent; 
   border-bottom: 1px solid rgb(0, 0, 0);
   filter: drop-shadow(1px 2px 6px rgb(22, 22, 22));
   height: 85px;
+  /* z-index: 10; */
 }
 
 nav button {
@@ -78,19 +89,22 @@ nav button {
 }
 
 .nav-link {
-  color: white;
+  /* color: #f70776;  */
+  color: #eaeaea; 
   font-size: 1.3rem;
   letter-spacing: 2px;
   margin-right: 1.5rem;
 }
 
 .nav-link:hover {
-  color: rgb(135, 231, 255);
+  /* color: rgb(228, 159, 248); */
+  color: #577fff; 
 }
 
 
 .active {
-  color: rgb(135, 231, 255) !important;
+  /* color: rgb(135, 231, 255) !important; */
+  color: #577fff !important; 
 }
 
 .logo img {
@@ -108,6 +122,26 @@ nav button {
   border: 1px solid white;
 }
 
+.logout-btn:hover {
+  background-color: #161616;
+}
+
+.clear-btn:hover {
+  background-color: #161616;
+}
+
+.btn-dark {
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+.btn-dark:hover {
+  background-color: #161616;
+  border: 1px solid rgb(46, 56, 250);
+}
+
+
+
 /* CARDS */
 
 .card,
@@ -115,12 +149,14 @@ nav button {
   border-radius: .7rem;
   border: none;
   box-shadow: 2px 2px 8px rgba(51, 51, 51, 0.556);
-  color: #0335ec;;
+  color: #0335ec;
+  color: #161616;
 }
 
 .card-body {
   /* background-color: rgba(101, 213, 254, 0.697); */
-  background-color: rgb(98, 231, 251);
+  /* background-color: rgb(98, 231, 251); */
+ background-color: #eaeaea; 
   border: none;
 }
 

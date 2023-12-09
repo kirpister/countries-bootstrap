@@ -31,7 +31,7 @@ const Login = () => {
                 placeholder='Password' 
             /> 
 
-            <Button onClick={() => logInWithEmailAndPassword(email, password)}>Login</Button>
+            <Button className='btn-dark' onClick={() => logInWithEmailAndPassword(email, password)}>Login</Button>
             <div className='no-account'>
             <p>Create an account?</p>
             <Link to='/register'>Register</Link>

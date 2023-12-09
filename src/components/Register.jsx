@@ -44,7 +44,7 @@ const Register = () => {
             placeholder='Password' 
             /> 
 
-            <Button onClick={register}>Register</Button>
+            <Button className='btn-dark' onClick={register}>Register</Button>
             <div className='account'>
             <p>Already have an account?</p>
             <Link to='/login'>Login</Link>
